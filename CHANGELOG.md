@@ -4,6 +4,21 @@ All notable changes to `phil/markup-bundle` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.1.2-alpha - 2026-11-15
+
+### Added
+
+- The `purifier` configuration: `auto`, the default, for `Purifiers::defaultPolicies()` of `phil/markup` 0.2 — the
+  `ammonia` extension of PHP where it is loaded, `symfony/html-sanitizer` otherwise —, `sanitizer` or `ammonia`, the
+  last refused where the extension is not loaded; the service `phil_markup.purifier`, aliased by `HtmlPurifier`.
+
+### Changed
+
+- `MediaHostsPass` gives the `media_hosts` to `AmmoniaPurifier` and `Purifiers` too, and points `HtmlPurifier` back
+  at the purifier chosen when a later bundle points it at `SanitizerPurifier`.
+- `phil/markup` ^0.2.1 and `phil/ujo` ^0.1.2 are required: `Purifiers` and `AmmoniaPurifier`, bold and italic of
+  Markdown and the wikis as `<strong>` and `<em>`, and the accessible checkboxes of checklists.
+
 ## 0.1.1-alpha - 2026-11-14
 
 ### Changed
